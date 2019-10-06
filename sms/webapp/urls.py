@@ -16,11 +16,12 @@ Including another URLconf
 
 from django.conf.urls import url
 
-from .views import index, add_student
+from .views import index, add_student, list_students
 
 app_name = 'webapp'
 
 urlpatterns = [
     url(r'^$', index, name='index'),
-    url(r'^add-student$', add_student, name='add-student')
+    url(r'^add-student$', add_student, name='add-student'),
+    url(r'^manage-students$', list_students, name='manage-students'),
 ]
