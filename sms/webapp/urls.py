@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.conf.urls import url
 
-from .views import index, add_student, list_students
+from .views import index, add_student, list_students, mark_attendance, delete_student
 
 app_name = 'webapp'
 
@@ -24,4 +24,6 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^add-student$', add_student, name='add-student'),
     url(r'^manage-students$', list_students, name='manage-students'),
+    url(r'^mark-attendance$', mark_attendance, name='mark-attendance'),
+    url(r'^delete-student$', delete_student, name='delete-student'),
 ]

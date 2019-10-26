@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Present</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for element in students %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ element.name }}</td>
+      <td>{{ element.gender }}</td>
+      <td><input type="checkbox" name="present" onchange="mark_present(this, '{{ element.id }}')"></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

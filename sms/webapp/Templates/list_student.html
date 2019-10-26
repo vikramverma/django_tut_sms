@@ -8,6 +8,7 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Gender</th>
+      <th scope="col">Delete Students</th>
     </tr>
   </thead>
   <tbody>
@@ -16,9 +17,28 @@
       <th scope="row">{{ forloop.counter }}</th>
       <td>{{ element.name }}</td>
       <td>{{ element.gender }}</td>
+      <td><button class="btn btn-danger" onclick="delete_this_student(this, '{{ element.id }}')">Delete</button></td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
 
+{% endblock %}
+
+
+{% block js %}
+<script>
+    function delete_this_student(that, student_id){
+      let delete_row = $(that).closest('tr');
+      $.ajax({
+        url:'{% url 'webapp:delete-student' %}?id='+student_id,
+        method:'GET',
+        success:function(data){
+          console.log(data);
+          alert('Student Deleted');
+          delete_row.hide();
+        }
+      });
+    }
+</script>
 {% endblock %}
