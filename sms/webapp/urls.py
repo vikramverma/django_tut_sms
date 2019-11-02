@@ -16,12 +16,14 @@ Including another URLconf
 
 from django.conf.urls import url
 
-from .views import index, add_student, list_students, mark_attendance, delete_student
+from .views import index, add_student, list_students, mark_attendance, delete_student, loginfunction, logoutfunction
 
 app_name = 'webapp'
 
 urlpatterns = [
     url(r'^$', index, name='index'),
+    url(r'^login$', loginfunction, name='loginname'),
+    url(r'^logout$', logoutfunction, name='logoutname'),
     url(r'^add-student$', add_student, name='add-student'),
     url(r'^manage-students$', list_students, name='manage-students'),
     url(r'^mark-attendance$', mark_attendance, name='mark-attendance'),
